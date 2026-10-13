@@ -181,7 +181,7 @@ function openCoin(id) {
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  $("themeToggle").textContent = theme === "dark" ? "Light" : "Dark";
+  $("themeToggle").textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
   try { localStorage.setItem("worldCoinTheme", theme); } catch {}
 }
 
@@ -190,7 +190,7 @@ async function initialize() {
   try { theme = localStorage.getItem("worldCoinTheme") === "dark" ? "dark" : "light"; } catch {}
   setTheme(theme);
   $("themeToggle").addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
-  $("viewToggle").addEventListener("click", () => { state.view = state.view === "cards" ? "table" : "cards"; $("viewToggle").textContent = state.view === "cards" ? "Table" : "Cards"; render(); });
+  $("viewToggle").addEventListener("click", () => { state.view = state.view === "cards" ? "table" : "cards"; $("viewToggle").textContent = state.view === "cards" ? "▦ Table" : "▦ Cards"; render(); });
   for (const id of ["countryFilter", "yearFilter", "conditionFilter", "statusFilter", "sortFilter"]) $(id).addEventListener("change", render);
   $("searchInput").addEventListener("input", render);
   $("resetFilters").addEventListener("click", () => { for (const id of ["countryFilter", "yearFilter", "conditionFilter", "statusFilter", "searchInput"]) $(id).value = ""; $("sortFilter").value = "country"; render(); });
