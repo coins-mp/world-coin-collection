@@ -92,15 +92,65 @@ function populateFilters() {
 }
 
 function renderContinentCards() {
-  $("continentCards").innerHTML = ["", ...CONTINENTS].map(continent => `<button type="button" class="stat-card" data-continent="${continent}" aria-pressed="${state.continent === continent}"><span class="stat-label">${continent || "All Coins"}</span><span class="stat-value">${state.coins.filter(c => !continent || c.continent === continent).length}</span></button>`).join("");
-  $("continentCards").querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
-    state.continent = button.dataset.continent;
-    $("countryFilter").value = "";
-    populateFilters();
-    renderContinentCards();
-    render();
-    $("sectionTitle").scrollIntoView({ behavior: "smooth", block: "start" });
-  }));
+  const areas = {
+    "Africa": "960 490 390 450",
+    "Asia": "1220 230 560 520",
+    "Europe": "990 270 400 270",
+    "North America": "220 240 540 410",
+    "South America": "480 600 330 470",
+    "Oceania": "1490 690 330 340"
+  };
+
+  $("continentCards").innerHTML = ["", ...CONTINENTS]
+    .map(continent => {
+      const map = continent
+        ? `<svg class="continent-map"
+                viewBox="${areas[continent]}"
+                aria-hidden="true"
+                focusable="false">
+             <image href="images/maps/world-map.jpg"
+                    width="1920"
+                    height="1280" />
+           </svg>`
+        : `<img class="continent-map"
+                src="images/maps/world-map.jpg"
+                alt="">`;
+
+      const count = state.coins.filter(
+        coin => !continent || coin.continent === continent
+      ).length;
+
+      return `
+        <button type="button"
+                class="stat-card"
+                data-continent="${continent}"
+                aria-pressed="${state.continent === continent}">
+          ${map}
+          <span class="stat-label">
+            ${continent || "All Coins"}
+          </span>
+          <span class="stat-value">${count}</span>
+        </button>
+      `;
+    })
+    .join("");
+
+  $("continentCards").querySelectorAll("button")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        state.continent = button.dataset.continent;
+        $("countryFilter").value = "";
+
+        populateFilters();
+        renderContinentCards();
+        render();
+
+        $("sectionTitle").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
 }
 
 function attachImages(container) {
