@@ -92,26 +92,19 @@ function populateFilters() {
 }
 
 function renderContinentCards() {
-  const areas = {
-    "Africa": "960 490 390 450",
-    "Asia": "1220 230 560 520",
-    "Europe": "990 270 400 270",
-    "North America": "220 240 540 410",
-    "South America": "480 600 330 470",
-    "Oceania": "1490 690 330 340"
+  const artwork = {
+    "Africa": "africa",
+    "Asia": "asia",
+    "Europe": "europe",
+    "North America": "north-america",
+    "South America": "south-america",
+    "Oceania": "oceania"
   };
 
   $("continentCards").innerHTML = ["", ...CONTINENTS]
     .map(continent => {
       const map = continent
-        ? `<svg class="continent-map"
-                viewBox="${areas[continent]}"
-                aria-hidden="true"
-                focusable="false">
-             <image href="images/maps/world-map.jpg"
-                    width="1920"
-                    height="1280" />
-           </svg>`
+        ? `<img class="continent-map" src="images/continents/${artwork[continent]}-rectangular.png" alt="" aria-hidden="true" style="object-fit:cover">`
         : `<img class="continent-map"
                 src="images/maps/world-map.jpg"
                 alt="">`;
