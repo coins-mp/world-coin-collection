@@ -67,3 +67,37 @@ footer a { color:inherit; }
 @media(max-width:1100px) { .site-header { flex-wrap:wrap; } .coin-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media(max-width:800px) { .filters-panel { grid-template-columns:repeat(2,minmax(0,1fr)); } .coin-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .stat-card { flex-basis:calc((100% - 20px)/3); } }
 @media(max-width:500px) { .site-header,.page-shell { padding:16px; } .brand-mark { width:48px; height:48px; } .brand p { font-size:14px; } .header-actions { width:100%; } .stat-card { flex-basis:calc((100% - 10px)/2); padding:12px; } .stat-label { font-size:15px; } .coin-grid { grid-template-columns:1fr; } .search-controls { gap:8px; } .search-controls input { flex:1; width:0; } .search-controls button { padding:10px; font-size:14px; } }
+
+/* World map artwork */
+.brand-map {
+  width: 132px;
+  height: 88px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+.continent-map {
+  display: block;
+  width: 100%;
+  height: 96px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #c3a36a;
+}
+
+.stat-card {
+  overflow: hidden;
+}
+
+@media (max-width: 500px) {
+  .brand-map {
+    width: 90px;
+    height: 60px;
+  }
+
+  .continent-map {
+    height: 84px;
+  }
+}
