@@ -50,3 +50,4 @@ This preview command has no automatic shutdown. The Euro catalog's existing laun
 ## Scope
 
 This first version includes continent navigation, filters, card and table views, dark theme, coin details, and navigation between catalogs. A separate world-coin admin, local synchronization, and automatic shutdown are not implemented in this version. The existing Euro coin server must not be reused to write world coin data.
+
