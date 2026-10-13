@@ -104,7 +104,7 @@ function renderContinentCards() {
   $("continentCards").innerHTML = ["", ...CONTINENTS]
     .map(continent => {
       const map = continent
-        ? `<img class="continent-map" src="images/continents/${artwork[continent]}-rectangular.png" alt="" aria-hidden="true" style="object-fit:cover">`
+        ? `<img class="continent-map" src="images/maps/continents/${artwork[continent]}-rectangular.jpeg" alt="" aria-hidden="true" style="object-fit:cover">`
         : `<img class="continent-map"
                 src="images/maps/world-map.jpg"
                 alt="">`;
