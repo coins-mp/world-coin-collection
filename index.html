@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Coin Collection</title>
+  <link rel="stylesheet" href="style.css?v=1">
+  <script src="app.js?v=1" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">◎</span><div>
+      <h1>World Coin Collection</h1><p>Coins from around the world, organized by continent</p>
+    </div></div>
+    <div class="header-actions">
+      <nav class="collection-links" aria-label="Collections">
+        <a class="secondary-btn" href="https://coins-mp.github.io/">Euro Coins</a>
+        <a class="secondary-btn selected" href="./" aria-current="page">World Coins</a>
+      </nav>
+      <button class="secondary-btn" id="themeToggle" type="button">Dark</button>
+      <button class="secondary-btn" id="viewToggle" type="button">Table</button>
+    </div>
+  </header>
+  <main class="page-shell">
+    <section id="continentCards" class="stats-grid" aria-label="Continents"></section>
+    <section class="filters-panel" aria-label="Coin filters">
+      <div class="filter-group"><label for="countryFilter">Country</label><select id="countryFilter"><option value="">All countries</option></select></div>
+      <div class="filter-group"><label for="yearFilter">Year</label><select id="yearFilter"><option value="">All years</option></select></div>
+      <div class="filter-group"><label for="conditionFilter">Condition</label><select id="conditionFilter"><option value="">All conditions</option></select></div>
+      <div class="filter-group"><label for="statusFilter">Status</label><select id="statusFilter"><option value="">All statuses</option><option value="collection">In collection</option><option value="missing">Missing</option><option value="duplicate">Duplicate</option></select></div>
+      <div class="filter-group"><label for="sortFilter">Sort by</label><select id="sortFilter"><option value="country">Country A–Z</option><option value="year-desc">Year: newest first</option><option value="year-asc">Year: oldest first</option></select></div>
+      <div class="filter-group search-group"><label for="searchInput">Search</label><div class="search-controls"><input id="searchInput" type="search" placeholder="Country, coin name, denomination, year..."><button id="resetFilters" class="secondary-btn" type="button">Reset filters</button></div></div>
+    </section>
+    <section class="section-heading"><h2 id="sectionTitle">All Coins</h2><p id="resultCount" aria-live="polite">Loading catalog…</p></section>
+    <p id="catalogMessage" class="empty-state" hidden></p>
+    <section id="coinGrid" class="coin-grid" aria-label="Coins"></section>
+    <div id="tableWrap" class="table-wrap" hidden><table><caption class="sr-only">World coin catalog</caption><thead><tr><th>Country</th><th>Continent</th><th>Year</th><th>Coin</th><th>Denomination</th><th>Condition</th><th>Status</th></tr></thead><tbody id="tableBody"></tbody></table></div>
+  </main>
+  <dialog id="coinDialog"><button id="closeDialog" class="secondary-btn" type="button">Close</button><div id="coinDetails"></div></dialog>
+  <footer><a href="https://coins-mp.github.io/">Euro Coins</a><span>·</span><a href="./" aria-current="page">World Coins</a></footer>
+</body>
+</html>
