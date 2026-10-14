@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>World Coin Collection</title>
-  <link rel="stylesheet" href="style.css?v=1">
-  <script src="app.js?v=1" defer></script>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="app.js?v=2" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -14,7 +14,7 @@
   alt="World Coin Collection"
   style="width:60px;height:60px;min-width:60px;object-fit:cover;border-radius:50%;flex-shrink:0;">
       <h1>World Coin Collection</h1>
-    </div></div>
+    </div>
     <div class="header-actions">
       <nav class="collection-links" aria-label="Collections">
         <a class="secondary-btn collection-link" href="https://coins-mp.github.io/">Euro Coins</a>
@@ -26,21 +26,29 @@
     </div>
   </header>
   <main class="page-shell">
+    <section id="localStrip" class="local-strip" hidden><span id="pendingCount">Local mode</span><div><button id="reloadCatalog" class="secondary-btn" type="button">Reload catalog</button> <a class="secondary-btn" href="admin/">Open Admin</a></div></section>
     <section id="continentCards" class="stats-grid" aria-label="Continents"></section>
     <section class="filters-panel" aria-label="Coin filters">
       <div class="filter-group"><label for="countryFilter">Country</label><select id="countryFilter"><option value="">All countries</option></select></div>
       <div class="filter-group"><label for="yearFilter">Year</label><select id="yearFilter"><option value="">All years</option></select></div>
       <div class="filter-group"><label for="conditionFilter">Condition</label><select id="conditionFilter"><option value="">All conditions</option></select></div>
-      <div class="filter-group"><label for="statusFilter">Status</label><select id="statusFilter"><option value="">All statuses</option><option value="collection">In collection</option><option value="missing">Missing</option><option value="duplicate">Duplicate</option></select></div>
+      <div class="filter-group"><label for="statusFilter">Status</label><select id="statusFilter"><option value="">All statuses</option><option value="collection">In collection</option><option value="missing">Missing</option><option value="duplicate">Duplicate</option><option value="found" id="foundOption" hidden>Found (local only)</option></select></div>
       <div class="filter-group"><label for="sortFilter">Sort by</label><select id="sortFilter"><option value="country">Country A–Z</option><option value="year-desc">Year: newest first</option><option value="year-asc">Year: oldest first</option></select></div>
       <div class="filter-group search-group"><label for="searchInput">Search</label><div class="search-controls"><input id="searchInput" type="search" placeholder="Country, coin name, denomination, year..."><button id="resetFilters" class="secondary-btn" type="button">Reset filters</button></div></div>
     </section>
     <section class="section-heading"><h2 id="sectionTitle">All Coins</h2><p id="resultCount" aria-live="polite">Loading catalog…</p></section>
     <p id="catalogMessage" class="empty-state" hidden></p>
     <section id="coinGrid" class="coin-grid" aria-label="Coins"></section>
+    <nav id="pagination" class="pagination" aria-label="Catalog pages"></nav>
     <div id="tableWrap" class="table-wrap" hidden><table><caption class="sr-only">World coin catalog</caption><thead><tr><th>Country</th><th>Continent</th><th>Year</th><th>Coin</th><th>Denomination</th><th>Condition</th><th>Status</th></tr></thead><tbody id="tableBody"></tbody></table></div>
   </main>
-  <dialog id="coinDialog"><button id="closeDialog" class="secondary-btn" type="button">Close</button><div id="coinDetails"></div></dialog>
+  <dialog id="coinDialog" class="world-dialog">
+    <button id="closeDialog" class="close-button" type="button" aria-label="Close coin">×</button>
+    <div class="world-layout"><section class="world-left"><button id="mainPhoto" class="main-photo" type="button" aria-label="Enlarge main photograph"></button><div id="photoThumbnails" class="photo-thumbnails" aria-label="Coin photographs"></div><div class="world-navigation"><button id="previousCoin" class="neighbor" type="button"><strong>← Previous</strong><span id="previousLabel"></span></button><span id="coinPosition"></span><button id="nextCoin" class="neighbor" type="button"><strong>Next →</strong><span id="nextLabel"></span></button></div></section>
+    <section class="world-right"><div id="coinSummary" class="coin-summary"></div><div id="coinDetails" class="fixed-details"></div><div id="descriptionScroll" class="description-scroll"><div class="description-heading"><h3>Description</h3><button id="expandDescription" class="secondary-btn" type="button">⛶ Read fullscreen</button></div><div id="coinDescription"></div><div id="coinNotes"></div></div></section></div>
+  </dialog>
+  <dialog id="descriptionDialog" class="reading-dialog"><button id="closeDescription" class="close-button" type="button" aria-label="Close description">×</button><div id="readingContent"></div></dialog>
+  <dialog id="zoomDialog" class="zoom-dialog"><button id="closeZoom" class="close-button" type="button" aria-label="Close image">×</button><div id="zoomViewport"><img id="zoomImage" alt="" tabindex="0" role="button" aria-label="Click to zoom in or out"></div></dialog>
   <footer><a href="https://coins-mp.github.io/">Euro Coins</a><span>·</span><a href="./" aria-current="page">World Coins</a><span>·</span><a href="https://coins-mp.github.io/zero-euro-collection/">0 Euro</a></footer>
 </body>
 </html>
