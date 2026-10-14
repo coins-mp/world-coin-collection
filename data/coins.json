@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "id": "4130f00c-99dc-41bf-97ae-1dc7f6ab0d7d",
+    "country": "Georgia",
+    "countryCode": "GE",
+    "continent": "Europe",
+    "name": "Georgian Lari",
+    "denomination": "1 Lari",
+    "year": "2006",
+    "condition": "",
+    "status": "collection",
+    "mint": "",
+    "metal": "cupronickel",
+    "weight": "7.8 g",
+    "diameter": "26.2 mm",
+    "mintage": "",
+    "notes": "",
+    "imageFile": "",
+    "images": [
+      "images/d8ed968faa6bd72e4fab78abff79f9c9282f76837f324285528686fcfd16934d.jpg",
+      "images/22c15c9f633c0d83ce067d4431e8200f765ac76db3bb29baf9761e0aa0d4d6ff.jpg",
+      "images/03bc2a1474e352a577510315579e7728a313e31d6ee7b63caa10c0cf35a45274.jpg"
+    ],
+    "image": "images/d8ed968faa6bd72e4fab78abff79f9c9282f76837f324285528686fcfd16934d.jpg",
+    "description": [
+      {
+        "title": "",
+        "text": "The first circulation of coins of 2006 with a face value of 1 lari was minted at the Royal Mint of the Netherlands. After 2006, the circulation increased several times. Coins were minted at various mints in Europe. Unfortunately, the exact number of the first print run, as well as the number of coins added at different times, as well as the exact number of later mints, is still unknown.\nThus, the year \"2006\" on the coins of 2006 is the year of freezing, as well as \"1993\" on the previous family of coins (1-50 tetri).",
+        "image": "",
+        "caption": "",
+        "link": ""
+      }
+    ],
+    "details": []
+  }
+]
